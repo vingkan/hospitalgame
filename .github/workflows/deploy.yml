@@ -41,8 +41,8 @@ jobs:
 
       - name: Install dependencies and build project
         run: |
-          npm ci
-          npm run build
+          yarn install --frozen-lockfile
+          yarn build
           touch ./dist/.nojekyll
 
       - name: Upload artifact
