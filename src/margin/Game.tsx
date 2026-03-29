@@ -16,7 +16,7 @@ import { Dashboard } from "./ui/Dashboard";
 import { Final } from "./ui/Final";
 import { CalibrationView } from "./ui/CalibrationView";
 
-export default function Game() {
+export default function Game({ onBack }: { onBack?: () => void }) {
   const [screen, setScreen] = useState("title");
   const [pi, setPi] = useState(0);
   const [inp, setInp] = useState<V>({ ...BASE_INPUTS });
@@ -225,6 +225,23 @@ export default function Game() {
             Based on real US hospital economics. ~2% avg margin, ~$1.6T total
             spend.
           </div>
+          {onBack && (
+            <button
+              onClick={onBack}
+              style={{
+                marginTop: 18,
+                background: "none",
+                border: "none",
+                color: C.textMuted,
+                fontFamily: F.b,
+                fontSize: 13,
+                cursor: "pointer",
+                textDecoration: "underline",
+              }}
+            >
+              ← Back to Menu
+            </button>
+          )}
         </div>
       </div>
     );
